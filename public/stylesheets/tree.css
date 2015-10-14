@@ -1,0 +1,39 @@
+
+div, svg {
+  margin: auto;
+}
+#tree{
+  max-width:1000px;
+  max-height: 700px;
+  min-width: 100px;
+  min-height: 100px;
+  overflow: scroll;
+  width: auto;
+  height: auto;
+  border: 1px solid crimson;
+  padding:10px;
+}
+
+svg {
+  border: 1px solid cornflowerblue;
+  display: block;
+}
+
+#center {
+  text-align: center;
+  margin-top: 10px;
+}
+
+circle {
+  fill: crimson;
+}
+
+text {
+  font-size: 16px;
+  fill: white;
+  text-anchor: middle;
+}
+
+#new{
+
+}

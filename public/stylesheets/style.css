@@ -3,34 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-div, svg {
-  margin: auto;
-}
-
 a {
   color: #00B7FF;
 }
 
-svg {
-  border: 1px solid crimson;
-  display: block;
-}
-
-#center {
-  text-align: center;
-  margin-top: 10px;
-}
-
-circle {
-  fill: crimson;
-}
-
-text {
-  font-size: 16px;
-  fill: white;
-  text-anchor: middle;
-}
-
-#new{
-
-}
