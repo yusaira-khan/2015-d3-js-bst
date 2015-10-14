@@ -1,0 +1,15 @@
+extends layout
+
+block extra
+  script(src='/javascripts/node_modules/d3.min.js')
+  script(src='/javascripts/node_modules/jquery.min.js')
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div(id='tree')
+  div(id='center')
+      input(id='new') 5
+      button(id='en') Enter number!
+  script
+    include bst.js
