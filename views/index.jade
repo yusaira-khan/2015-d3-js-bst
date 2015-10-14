@@ -1,8 +1,11 @@
 extends layout
 
 block extra
+  //- TODO: load from object under development variable
   script(src='/javascripts/node_modules/d3.min.js')
   script(src='/javascripts/node_modules/jquery.min.js')
+
+  script(src='/javascripts/tree.js')
 
 block content
   h1= title

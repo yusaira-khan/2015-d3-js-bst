@@ -16,13 +16,19 @@ var svg = d3.select('#tree').append('svg').attr({
 var chartWidth = svgWidth - margin.right - margin.left, chartHeight = svgHeight - margin.top - margin.bottom;
 
 $new = $('#new');
-$('#enter').on('click',function enterNew(){
+$('#enter').on('click', function enterNew() {
   var num = parseInt($new.val());
-  var pos=insertInTree(num);
-var g=svg.append('g');
-  g.append('circle').attr({
-
-            });
 
 
 });
+
+function clearCircles() {
+  svg.selectAll('g').remove();
+}
+
+
+function addIndividual() {
+  var pos = insertInTree(num);
+  var g = svg.append('g');
+  g.append('circle').attr({});
+}
