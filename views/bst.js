@@ -48,6 +48,10 @@ function addToTree(num) {
   }
 }
 
+function redraw(){
+
+}
+
 function addIndividual() {
   var pos = insertInTree(num);
   var g = svg.append('g');
