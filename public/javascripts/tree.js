@@ -5,23 +5,25 @@
 function TreeNode(data, options) {
   if (!options) {
     options = {left: null, right: null, parent: null};
+
   }
   this.data = data;
   this.left = options.left;
   this.right = options.right;
+  this.parent = options.parent;
 }
 
 TreeNode.prototype.insert = function (tkey) {
 
   if (tkey < this.data.tkey) {
     if (this.left == null) {
-      this.left = new TreeNode({tkey: tkey}, {parent: this})
+      this.left = new TreeNode({tkey: tkey}, {parent: this, left: null, right: null})
     } else {
       this.left.insert(tkey);
     }
   } else {
     if (this.right == null) {
-      this.right = new TreeNode({tkey: tkey}, {parent: this})
+      this.right = new TreeNode({tkey: tkey}, {parent: this, left: null, right: null})
     } else {
       this.right.insert(tkey);
     }
@@ -52,19 +54,38 @@ TreeNode.prototype.min = function () {
 };
 
 TreeNode.prototype.replaceChild = function (newChild) {
-  if (this.parent.left == this) {
-    this.parent.left = newChild;
+  if (this.parent) {
+    if (this.parent.left == this) {
+      this.parent.left = newChild;
+    }
+    else if (this.parent.right == this) {
+      this.parent.right = newChild;
+    }
   }
-  else if (this.parent.right == this) {
-    this.parent.right = newChild;
+  if (!newChild) {
+    newChild.parent = this.parent;
   }
-
+  delete this;
 };
 
 TreeNode.prototype.delete = function (tkey) {
-  if (tkey == this.data.tkey) {
+  if (tkey < this.data.tkey) {
+    this.left.delete(tkey);
+  }
+  else if (tkey > this.data.tkey) {
+    this.right.delete(tkey);
+  }
+  else /*(tkey == this.data.tkey) */{
     if (this.left && this.right) {
-      var min = this.right.min();
+      var newChild = this.right.min();
+      this.data = newChild.data;
+      newChild.delete();
+    } else if (this.left) {
+      this.replaceChild(this.left);
+    } else if (this.right) {
+      this.replaceChild(this.right);
+    } else {
+      this.replaceChild(null);
     }
   }
 };
