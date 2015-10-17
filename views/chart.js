@@ -49,6 +49,21 @@ function addToTree(num) {
 }
 
 function redraw() {
+  function draw(node) {
+//    var g = svg.append('g');
+    var y = data.height * circle_radius;
+    var x = data.width / 2 + data.pAdj;
+
+    svg.append('circle').attr({
+      'cx': this.x,
+      'cy': this.y,
+      'r': circle_radius
+    });
+    svg.append('text').attr({
+      'x': this.x,
+      'y': this.y
+    }).text(this.data.tkey);
+  }
 
 }
 
