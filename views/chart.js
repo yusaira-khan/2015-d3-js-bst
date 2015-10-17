@@ -13,10 +13,10 @@ var minAngleDegrees = 20;
 
 var svg;
 function resize_svg(height) {
-  var svgWidth = minSide, svgHeight=minSide;
-  if(height){
-    svgHeight=Math.max(minside, height * 100);
-    svgWidth= Math.max(minside,height*100);
+  var svgWidth = minSide, svgHeight = minSide;
+  if (height) {
+    svgHeight = Math.max(minside, height * 100);
+    svgWidth = Math.max(minside, height * 100);
   }
   svg = d3.select('#tree').append('svg').attr({
     'width': svgWidth,
@@ -48,7 +48,7 @@ function addToTree(num) {
   }
 }
 
-function redraw(){
+function redraw() {
 
 }
 
@@ -57,3 +57,5 @@ function addIndividual() {
   var g = svg.append('g');
   g.append('circle').attr({});
 }
+
+

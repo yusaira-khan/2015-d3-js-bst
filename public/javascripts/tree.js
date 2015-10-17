@@ -16,3 +16,47 @@ TreeNode.prototype.draw= function(){
   this.left.draw();
   this.right.draw();
 };
+
+TreeNode.prototype.inOrderTraverse = function(callback){
+  if (this.left){
+    this.left.inOrderTraverse(callback);
+  }
+  callback(this.data);
+  if(this.right){
+    this.right.inOrderTraverse(callback);
+  }
+};
+
+
+Tree.prototype.height = function () {
+  var h = 0;
+  if (!this.left && !this.right) {
+    h = 1;
+  }
+  else if (!this.left) {
+    h = this.right.height() + 1;
+  } else if (!this.right) {
+    h = this.right.height() + 1;
+  }
+  else {
+    h = Math.max(this.right.height(), this.left.height()) + 1;
+
+  }
+  this.data.height= h;
+  return h;
+};
+
+TreeNode.prototype.width= function(dia){
+  var w = 0;
+  if (this.left){
+    w+= this.left.width(dia);
+  }
+  if (this.right){
+    w+= this.right.width(dia);
+  }
+ if (w===0){
+ w = dia;
+ }
+  this.data.width= w;
+  return w;
+};

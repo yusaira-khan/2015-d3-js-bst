@@ -20,21 +20,6 @@ TreeNode.prototype.insert = function (tkey) {
   }
 };
 
-Tree.prototype.height = function () {
-  if (this.left == null && this.right == null) {
-    this.h = 1;
-  }
-  else if (this.left == null) {
-    this.h = this.right.height() + 1;
-  } else if (this.right == null) {
-    this.h = this.right.height() + 1;
-  }
-  else {
-    this.h = Math.max(this.right.height(), this.left.height()) + 1;
-
-  }
-  return this.h
-};
 
 TreeNode.prototype.min = function () {
   if (this.left == null)
