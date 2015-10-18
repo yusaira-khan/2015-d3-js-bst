@@ -27,12 +27,13 @@ resize_svg();
 var treeToot = null;
 
 $new = $('#new');
-$('#enter').on('click', function enterNew() {
+$('#en').on('click', function enterNew() {
   var num = parseInt($new.val());
   addToTree(num);
-  var h = treeToot.height();
   clearCircles();
-  resize_svg(h);
+  //var h = treeToot.height();
+  //resize_svg(h);
+  redraw();
 });
 
 function clearCircles() {
@@ -49,22 +50,25 @@ function addToTree(num) {
 }
 
 function redraw() {
-  function draw(node) {
+  treeToot.width();
+  treeToot.height();
+  treeToot.preOrderTraverse(draw);
+}
+
+function draw(data) {
 //    var g = svg.append('g');
-    var y = data.height * circle_radius;
-    var x = data.width / 2 + data.pAdj;
+  var y = data.height * circle_radius;
+  var x = data.width / 2 + data.pAdj;
 
-    svg.append('circle').attr({
-      'cx': this.x,
-      'cy': this.y,
-      'r': circle_radius
-    });
-    svg.append('text').attr({
-      'x': this.x,
-      'y': this.y
-    }).text(this.data.tkey);
-  }
-
+  svg.append('circle').attr({
+    'cx': x,
+    'cy': y,
+    'r': circle_radius
+  });
+  svg.append('text').attr({
+    'x': x,
+    'y': y
+  }).text(this.data.tkey);//Cannot read property tkey of undefined
 }
 
 function addIndividual() {

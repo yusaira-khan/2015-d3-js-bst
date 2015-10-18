@@ -12,6 +12,7 @@ function TreeNode(data, options) {
   this.right = options.right;
   this.parent = options.parent;
 }
+
 TreeNode.prototype.preOrderTraverse = function (callback) {
 
   callback(this.data);
@@ -33,8 +34,7 @@ TreeNode.prototype.inOrderTraverse = function (callback) {
   }
 };
 
-
-Tree.prototype.height = function () {
+TreeNode.prototype.height = function () {
   var h = 0;
   if (!this.left && !this.right) {
     h = 1;
