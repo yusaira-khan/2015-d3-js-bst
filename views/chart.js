@@ -37,8 +37,9 @@ $('#en').on('click', function enterNew() {
 });
 
 function clearCircles() {
-//  svg.selectAll('g').remove();
-  svg.remove();
+  svg.selectAll('circle').remove();
+  svg.selectAll('text').remove();
+//  svg.remove();
 }
 
 function addToTree(num) {
@@ -47,6 +48,7 @@ function addToTree(num) {
   } else {
     treeToot.insert(num);
   }
+  treeToot.preOrderTraverse(function(data){console.log(data.height,data.tkey, data.pAdj)})
 }
 
 function redraw() {
@@ -58,7 +60,7 @@ function redraw() {
 function draw(data) {
 //    var g = svg.append('g');
   var y = data.height * circle_radius;
-  var x = data.width / 2 + data.pAdj;
+  var x = (data.width / 2 + data.pAdj)*minSide;
 
   svg.append('circle').attr({
     'cx': x,
@@ -68,7 +70,7 @@ function draw(data) {
   svg.append('text').attr({
     'x': x,
     'y': y
-  }).text(this.data.tkey);//Cannot read property tkey of undefined
+  }).text(data.tkey);//Cannot read property tkey of undefined
 }
 
 function addIndividual() {

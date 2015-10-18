@@ -22,6 +22,8 @@ TreeNode.prototype.preOrderTraverse = function (callback) {
   if (this.right) {
     this.right.preOrderTraverse(callback);
   }
+
+  //CAnnot read property height of null
 };
 
 TreeNode.prototype.inOrderTraverse = function (callback) {
@@ -50,6 +52,8 @@ TreeNode.prototype.height = function () {
   }
   this.data.height = h;
   return h;
+  //last node has an undefined height
+  //CAnnot read property height of null
 };
 
 TreeNode.prototype.width = function (pAdj) {
